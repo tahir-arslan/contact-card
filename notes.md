@@ -186,3 +186,13 @@ can test build locally using `heroku local web` then deploy app to staging env. 
 - `heroku create --remote staging` in main
 - update staging app settings to development mode since we only want to work in development (only need to do this once)
     `heroku config:set NODE_ENV=development --remote staging`
+- push to heroku to create heroku staging build
+        git add -A
+        git commit -m "exText"
+        git push staging main
+
+19.3
+differences between IndexedDB and localStorage/sessionStorage: allows persisting data and to query data since it's stored using indexes, therefore access to db in browser
+    since it is browser based, also allows user offline interaction or through limited internet connectivity
+
+we are able to use IndexedDB with native JS but will use `idb` package for assitence in allowing us to develop modular and maintainable code whenever we want to create/access IndexedDB DB
