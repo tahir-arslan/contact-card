@@ -196,3 +196,18 @@ differences between IndexedDB and localStorage/sessionStorage: allows persisting
     since it is browser based, also allows user offline interaction or through limited internet connectivity
 
 we are able to use IndexedDB with native JS but will use `idb` package for assitence in allowing us to develop modular and maintainable code whenever we want to create/access IndexedDB DB
+
+following `https://www.npmjs.com/package/idb` documentation:
+cd client, `npm install idb`
+`client/src/js/database.js`
+- import idb and regenerator-runtime/runtime
+- write exported async function `initDb` which will open a connection with IndexedDB API, configure it, and initialize IndexedDB db
+- use `upgrade` to add schema to be initialized if it is already not via `db.objectStoreNames` which is checking for `contacts`
+- use `db.createObjectStore` with `keyPath` which will instruct browser how and where to extract keys with key `id` and value `autoIncrement: true`
+
+export `initDb` into `client/src/js/index.js`
+in `root/package.json` alter `start` script
+
+implement POST and PUT to IndexedDB (see `getDb( )` and `postDb( )` in `database.js`
+
+navigate to root, `npm start`, `localhost:3001` for testing
