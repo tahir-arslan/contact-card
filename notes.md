@@ -183,4 +183,6 @@ can test build locally using `heroku local web` then deploy app to staging env. 
 - `server/routes/htmlRoutes.js` make similar change to target `index.html` from `dist` dir
 - from root dir: `heroku login` -> `npm install` -> `heroku local web` -> open `localhost:5000` check if app still functions correctly
 - merge to `develop` then `main`
-- `heroku create --remote staging`
+- `heroku create --remote staging` in main
+- update staging app settings to development mode since we only want to work in development (only need to do this once)
+    `heroku config:set NODE_ENV=development --remote staging`
